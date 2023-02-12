@@ -4,6 +4,10 @@ import { AppService } from './app.service';
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
+  @Get()  //这个去掉之后在app.controller.spec.ts文件中会出现错误
+  getHello(){
+
+  }
   //访问这个页面配置session
   @Get()
   @Render("default/index.ejs")
