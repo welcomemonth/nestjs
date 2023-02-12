@@ -1,11 +1,12 @@
-import { Controller, Get } from '@nestjs/common';
-import { NewsService } from 'src/news/news.service';
+import { Controller, Get, Response } from '@nestjs/common';
+
 @Controller('article')
 export class ArticleController {
-    constructor(private newsService:NewsService){}
 
     @Get()
-    index(){
-        return this.newsService.findAll(); 
+    index(@Response() res){                   //一分钟×10 过期      是不是只有后端可以访问，前端js中无法访问cookie
+        res.cookie("username","张三",{maxAge:4000,httpOnly:true,signed:true});
+        //设置cookie  //设置res就不能return
+        res.send("这是文章页面"); 
     }
 }

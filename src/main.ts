@@ -2,6 +2,8 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { NestExpressApplication } from '@nestjs/platform-express'
 import { join } from "path"
+import * as cookieParser from "cookie-parser"
+
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
@@ -19,6 +21,9 @@ async function bootstrap() {
   app.setBaseViewsDir("views"); //设置模板引擎目录  必须先安装ejs 
   app.setViewEngine("ejs");
 
+  //配置cookie中间件 //cookie加密 1、在cookieParser中传参数 2、设置 signed属性：true 3、获取req.signedCookies
+  app.use(cookieParser("this is signed cookie"));
+  //app.use(cookieParser());
   await app.listen(3000);
 }
 bootstrap();
