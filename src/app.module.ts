@@ -1,6 +1,7 @@
 import { Module, NestModule, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+<<<<<<< HEAD
 import { UserController } from './controller/user/user.controller';
 import { ProductController } from './controller/product/product.controller';
 import { NewsController } from './controller/news/news.controller';
@@ -15,6 +16,13 @@ import {logger} from './middleware/logger.middleware';
 @Module({
   imports: [],
   controllers: [AppController, UserController, ProductController, NewsController],
+=======
+import { UploadController } from './upload/upload.controller';
+import { UploadmanyController } from './uploadmany/uploadmany.controller';
+@Module({
+  imports: [],
+  controllers: [AppController, UploadController, UploadmanyController],
+>>>>>>> 58f092b9fb19254bc76dbd2990d9f793cd7783f8
   providers: [AppService],
 })
 export class AppModule implements NestModule{
