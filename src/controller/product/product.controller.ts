@@ -1,9 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller } from '@nestjs/common';
 
 @Controller('product')
-export class ProductController {
-    @Get()
-    index(){
-        return "商品页面";
-    }
-}
+export class ProductController {}
