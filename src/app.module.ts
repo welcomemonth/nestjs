@@ -4,8 +4,9 @@ import { AppService } from './app.service';
 import { AdminModule } from './module/admin/admin.module';
 import { ApiModule } from './module/api/api.module';
 import { DefaultModule } from './module/default/default.module';
+import { ShareModule } from './module/share/share.module';
 @Module({
-  imports: [AdminModule, ApiModule, DefaultModule], //引入模块
+  imports: [AdminModule, ApiModule, DefaultModule, ShareModule], //引入模块
   controllers: [AppController],
   providers: [AppService],
   //exports:[] //用来暴露当前模块的子元素

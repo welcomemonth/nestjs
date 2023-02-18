@@ -6,5 +6,7 @@ export class AppService {
   getHello(): string {
     return 'Hello World!';
   }
-  
+  getConfig() {
+    return {"domain":'Hello World!'};
+  }
 }
