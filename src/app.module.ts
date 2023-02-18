@@ -1,13 +1,14 @@
 import { Module, NestModule, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { NewsController } from './controller/news/news.controller';
-import { UserController } from './controller/user/user.controller';
-import { ProductController } from './controller/product/product.controller';
+import { AdminModule } from './module/admin/admin.module';
+import { ApiModule } from './module/api/api.module';
+import { DefaultModule } from './module/default/default.module';
 @Module({
-  imports: [],
-  controllers: [AppController, NewsController, UserController, ProductController],
+  imports: [AdminModule, ApiModule, DefaultModule], //引入模块
+  controllers: [AppController],
   providers: [AppService],
+  //exports:[] //用来暴露当前模块的子元素
 })
 export class AppModule implements NestModule{
   configure(consumer: MiddlewareConsumer) {
